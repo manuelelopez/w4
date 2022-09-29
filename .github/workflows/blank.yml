@@ -47,4 +47,4 @@ jobs:
       - name: 🛠️ Build
         run: echo "hugo server -D"
       - name: 🚀 Deploy
-        run: rsync --archive -e 'ssh' 'hugo/public/' ${{ secrets.AWS_PASSWORD }} ${{ secret.AWS_USERNAME }}@ec2-44-211-74-142.compute-1.amazonaws.com:~/www/
+        run: rsync --archive -e 'ssh' 'hugo/public/' ${{ secrets.AWS_PASSWORD }} {{ secret.AWS_USERNAME }} @ec2-44-211-74-142.compute-1.amazonaws.com:~/www/
