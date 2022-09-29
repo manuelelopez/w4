@@ -47,4 +47,8 @@ jobs:
       - name: 🛠️ Build
         run: echo "hugo server -D"
       - name: 🚀 Deploy
-        run: rsync --archive -e 'ssh' 'hugo/public/' ${{ secrets.AWS_PASSWORD }} ec2-user@ec2-44-211-74-142.compute-1.amazonaws.com:~/www/
+        #run: rsync --archive -e 'ssh' 'hugo/public/' ${{ secrets.AWS_PASSWORD }} ec2-user@ec2-44-211-74-142.compute-1.amazonaws.com:~/www/
+        run: |
+           ssh -i ~/.ssh/pkey ec2-user@ec2-44-211-74-142.compute-1.amazonaws.com
+           exit
+           #scp -i ~/.ssh/pkey -r ~/myblog/myfirstweek/public/* ec2-user@ec2-44-211-74-142.compute-1.amazonaws.com:/home/ec2-user/w3
